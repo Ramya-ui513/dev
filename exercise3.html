@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find Sum of Multiples</title>
+    <script>
+        function Sum(){
+            const a = parseInt(document.getElementById('A').value) ||0;
+            const b = parseInt(document.getElementById('B').value) ||0;
+            const n = parseInt(document.getElementById('N').value) ||0;
+             
+                let sum = 0;
+                for(i = 0; i < n; i++){
+                    if (i % a === 0 || i % b === 0){
+                        Sum = sum + i;
+                    }
+                }
+                
+        }
+    </script>
 </head>
 <body>
     <div>
@@ -19,7 +34,7 @@
         <input id = "N">
     </div>
     <div>
-        <button onclick = "sum()">Caluculate</button>
+        <button onclick = "Sum()">Caluculate</button>
     </div>
 </body>
 </html>
