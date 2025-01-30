@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <script>
+        function F5 (a ,l)
+
+        {
+            const a = document.getElementById('A').value
+                .split(' ')
+                .map(num => parseInt(num.trim()))
+                .filter(num => !isNaN(num));
+
+            const l = document.getElementById('L').value
+                .split(' ')
+                .map(num => parseInt(num.trim()))
+                .filter(num => !isNaN(num));
+
+            if (!array.isArray(a)|| !array.isArray(l)|| a.length ===2){
+                alert(`Invalid input A should contain 2 elements only`)
+            }
+            return l
+            .filter(i % a ===0 || i % l ===0)
+            .reduce((sum,i) => sum + i);
+
+            alert(`correct input is ${l}`);
+
+        }
+    </script>
+</head>
+<body>
+    <div>
+    <label>A</label>
+    <input id ="A">
+    </div>
+    <div>
+    <label>L</label>
+    <input id ="L">
+    </div>
+    <div>
+    <button onclick =" F5()"> calculate </button>
+    </div>
+
+</body>
+</html>
