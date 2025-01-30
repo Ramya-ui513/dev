@@ -8,8 +8,7 @@
         function sum(){
             const a = parseInt(document.getElementById('A').value);
             const b = parseInt(document.getElementById('B').value);
-            const l = document.getElementById('l').value.split(',').map(num => parseInt(num.trim())).filter(num => !isNaN(num));
-             
+            const l = document.getElementById('l').value.split(',').map(num => parseInt(num.trim()));
             if (a <= 0 || b <= 0 || l.length === 0) {
                 alert('Please enter valid numbers for a, b, and a list of numbers in l.');
                 return;
