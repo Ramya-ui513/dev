@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find Sum of Multiples</title>
     <script>
-        function sum(){
+        const sum = () => {
             const a = parseInt(document.getElementById('A').value);
             const b = parseInt(document.getElementById('B').value);
             const l = document.getElementById('l').value.split(',').map(num => parseInt(num.trim()));
@@ -26,15 +26,15 @@
 </head>
 <body>
     <div>
-        <lable>A:</lable>
+        <label>A:</label>
         <input id = "A">
     </div>
     <div>
-        <lable>B:</lable>
+        <label>B:</label>
         <input id = "B">
     </div>
     <div>
-        <lable>L:</lable>
+        <label>L:</label>
         <input id = "N">
     </div>
     <div>
