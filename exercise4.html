@@ -5,24 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find Sum of Multiples</title>
     <script>
-        const sum = () => {
-            const a = parseInt(document.getElementById('A').value);
-            const b = parseInt(document.getElementById('B').value);
-            const l = document.getElementById('l').value.split(',').map(num => parseInt(num.trim()));
-            if (a <= 0 || b <= 0 || l.length === 0) {
-                alert('Please enter valid numbers for a, b, and a list of numbers in l.');
+        let F4 =  (a, b, l) => {
+                return l.reduce((sum, num) => (num % a === 0 || num % b === 0) ? sum + num : sum, 0);
+            }
+
+        function calculateSum() {
+            const a = parseInt(document.getElementById('a').value);
+            const b = parseInt(document.getElementById('b').value);
+            const l = document.getElementById('l').value.split(',').map(Number);
+            
+            if (isNaN(a) || isNaN(b) || l.some(isNaN)) {
+                alert('Please enter valid numbers');
                 return;
             }
-
-            const sumOfMultiples = (a, b, l) => {
-                return l.reduce((sum, num) => (num % a === 0 || num % b === 0) ? sum + num : sum, 0);
-            };
-
-            const result = sumOfMultiples = (a, b, l) => {
-            alert(`The sum of all multiples of ${a} or ${b} in the list is ${result}.`); 
-            }
+            
+            const result = F4(a, b, l);
+            alert('Sum of multiples: ' + result);
         }
-    
     </script>
 </head>
 <body>
