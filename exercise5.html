@@ -4,43 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <script>
-        function F5 (a ,l)
-
-        {
-            const a = document.getElementById('A').value
-                .split(' ')
-                .map(num => parseInt(num.trim()))
-                .filter(num => !isNaN(num));
-
-            const l = document.getElementById('L').value
-                .split(' ')
-                .map(num => parseInt(num.trim()))
-                .filter(num => !isNaN(num));
-
-            if (!array.isArray(a)|| !array.isArray(l)|| a.length ===2){
-                alert(`Invalid input A should contain 2 elements only`)
+        const MathService = {
+            F5(factors, numbers) {
+                return numbers.reduce((sum, num) => 
+                    factors.some(factor => num % factor === 0) ? sum + num : sum, 0);
             }
-            return l
-            .filter(i % a ===0 || i % l ===0)
-            .reduce((sum,i) => sum + i);
-
-            alert(`correct input is ${l}`);
-
+        };
+        function calculateSum() {
+            const a = document.getElementById('a').value.split(',').map(Number);
+            const l = document.getElementById('l').value.split(',').map(Number);
+            
+            if (a.length !== 2 || a.some(isNaN) || l.some(isNaN)) {
+                alert('Please enter exactly two valid factors and a valid number list');
+                return;
+            }
+            
+            const result = MathService.F5(a, l);
+            alert('Sum of multiples: ' + result);
         }
+            
     </script>
 </head>
 <body>
-    <div>
+    
     <label>A</label>
-    <input id ="A">
-    </div>
-    <div>
+    <input id ="A"size = "50">
+    <br>
     <label>L</label>
-    <input id ="L">
-    </div>
-    <div>
+    <input id ="L" size = "50">
+    <br>
     <button onclick =" F5()"> calculate </button>
-    </div>
+    
 
 </body>
 </html>
