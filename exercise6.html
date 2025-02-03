@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 6 - Arrays</title>
+</head>
+<body>
+    <label>Enter a:</label>
+    <input id="a" >
+    <br>
+    <label>Enter l:</label>
+    <input id="l" >
+    <br>
+    <button onclick="calculateSum()">Calculate</button>
+
+    <script>
+        function f6(a, l) {
+            return l.filter(num => a.some(factor => num % factor === 0)).reduce((sum, num) => sum + num, 0);
+        }
+
+        function calculateSum() {
+            const a = document.getElementById("a").value.split(',').map(Number);
+            const l = document.getElementById("l").value.split(',').map(Number);
+            
+            if (a.some(isNaN) || l.some(isNaN)) {
+                alert("Please enter valid comma-separated numbers.");
+                return;
+            }
+
+            const result = f6(a, l);
+            alert("Sum of multiples: " + result);
+        }
+    </script>
+</body>
+</html>
