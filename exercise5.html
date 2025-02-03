@@ -2,14 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Multiples</title>
+</head>
+<body>
+    <label for="a">Enter factors (comma-separated, length 2):</label>
+    <input type="text" id="a" size="50">
+    <br>
+    <label for="l">Enter array (comma-separated numbers):</label>
+    <input type="text" id="l" size="50">
+    <br>
+    <button onclick="calculateSum()">Calculate</button>
+
     <script>
         const MathService = {
-            F5(factors, numbers) {
+            sumOfMultiples(factors, numbers) {
                 return numbers.reduce((sum, num) => 
                     factors.some(factor => num % factor === 0) ? sum + num : sum, 0);
             }
         };
+
         function calculateSum() {
             const a = document.getElementById('a').value.split(',').map(Number);
             const l = document.getElementById('l').value.split(',').map(Number);
@@ -19,21 +31,9 @@
                 return;
             }
             
-            const result = MathService.F5(a, l);
+            const result = MathService.sumOfMultiples(a, l);
             alert('Sum of multiples: ' + result);
         }
-            
     </script>
-</head>
-<body>
-    
-    <label for="a">Enter factors (comma-separated, length 2):</label>
-    <input type="text" id="a" size="50">
-    <br>
-    <label for="l">Enter array (comma-separated numbers):</label>
-    <input type="text" id="l" size="50">
-    <br>
-    <button onclick="calculateSum()">Calculate</button>
-
 </body>
 </html>
