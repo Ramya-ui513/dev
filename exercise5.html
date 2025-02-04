@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sum of Multiples</title>
 </head>
-
 <body>
-    <label>Enter factors a:</label>
+    <label >Enter factors a:</label>
     <input id="a" size="50">
     <br>
     <label>Enter array l:</label>
@@ -18,30 +16,29 @@
 
     <script>
         const MathService = {
-            F5(factors, numbers) {
+            sumOfMultiples(factors, numbers) {
                 return numbers.reduce((sum, num) => {
-                    if (factors.some(factor => num % factor === 0)) {
-                        return sum + num;
-                    } else {
-                        return sum;
-                    }
-                }, 0);
-            };
+                if (factors.some(factor => num % factor === 0)) {
+                return sum + num;
+                } else {
+            return sum;
+            }
+            }, 0);
+            }
+        };
 
-
-            function calculateSum() {
-                const a = document.getElementById('a').value.split(',').map(Number);
-        const l = document.getElementById('l').value.split(',').map(Number);
-
-        if (a.length !== 2 || a.some(isNaN) || l.some(isNaN)) {
-            alert('Please enter exactly two valid factors and a valid number list');
-            return;
-        }
-
-        const result = MathService.F5(a, l);
-        alert('Sum of multiples: ' + result);
+        function calculateSum() {
+            const a = document.getElementById('a').value.split(',').map(Number);
+            const l = document.getElementById('l').value.split(',').map(Number);
+            
+            if (a.length !== 2 || a.some(isNaN) || l.some(isNaN)) {
+                alert('Please enter exactly two valid factors and a valid number list');
+                return;
+            }
+            
+            const result = MathService.sumOfMultiples(a, l);
+            alert('Sum of multiples: ' + result);
         }
     </script>
 </body>
-
 </html>

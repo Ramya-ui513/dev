@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sum of Multiples</title>
 </head>
+
 <body>
     <label>Enter a:</label>
     <input id="a">
@@ -18,23 +20,30 @@
     <button onclick="calculateSum()">Calculate</button>
 
     <script>
-        let F4 =  (a, b, l) => {
-                return l.reduce((sum, num) => (num % a === 0 || num % b === 0) ? sum + num : sum, 0);
-            }
+        let F4 = (a, b, l) => {
+            l.reduce((sum, num) => {
+                if (num % a === 0 || num % b === 0) {
+                    return sum + num;
+                } else {
+                    return sum;
+                }
+            }, 0);
+        }
 
         function calculateSum() {
             const a = parseInt(document.getElementById('a').value);
             const b = parseInt(document.getElementById('b').value);
             const l = document.getElementById('l').value.split(',').map(Number);
-            
+
             if (isNaN(a) || isNaN(b) || l.some(isNaN)) {
                 alert('Please enter valid numbers');
                 return;
             }
-            
+
             const result = F4(a, b, l);
             alert('Sum of multiples: ' + result);
         }
     </script>
 </body>
+
 </html>
