@@ -18,7 +18,7 @@
 
     <script>
         const MathService = {
-            sumOfMultiples(factors, numbers) {
+            F5(factors, numbers) {
                 return numbers.reduce((sum, num) => {
                     if (factors.some(factor => num % factor === 0)) {
                         return sum + num;
@@ -38,7 +38,7 @@
                 return;
             }
 
-            const result = MathService.sumOfMultiples(a, l);
+            const result = MathService.F5(a, l);
             alert('Sum of multiples: ' + result);
         }
     </script>
