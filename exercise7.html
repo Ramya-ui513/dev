@@ -6,7 +6,15 @@
     
 </head>
 <body>
-    
+    <label>Banana</label>
+    <input id="a" size="50">
+    <br>
+    <label>Peach</label>
+    <input id="b" size="50">
+    <br>
+    <label>Apple</label>
+    <input id="c" size="50">
+    <br>
     <button onclick ="quantity()"> calculate total cost </button>
     <p id="output"></p>
 </body>
@@ -27,9 +35,9 @@
 
     function quantity() {
         const basket = {
-            Banana : 3,
-            peach : 2,
-            Apple : 5
+            Banana: parseFloat(document.getElementById("a").value) || 0, 
+            peach: parseFloat(document.getElementById("b").value) || 0,  
+            Apple: parseFloat(document.getElementById("c").value) || 0 
         };
 
         const price = {
