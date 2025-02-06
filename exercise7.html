@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick ="basket_price: sum()"> calculate </button>
+    <input id="output">
+</body>
+<script>
+    const basket_price= {
+        F7: function(basket, Price){
+            let totalCost = 0;
+            for(let product in basket){
+                if (prise[product] != undefined){
+                    totalCost += basket[product] * price[product];
+                }
+
+            }
+            
+            return totalCost;
+        }
+    }
+
+    function sum() {
+        const basket = {
+            Banana : 3,
+            peach : 2,
+            Apple : 5
+        };
+
+        const price = {
+            Banana : 2.30,
+            peach : 1.99,
+            Apple : 2.10
+        };
+        const result = sum(basket, prices);
+                document.getElementById("output").innerText = "Total Cost: $" + result.toFixed(2);
+    }
+    
+    
+</script>
+</html>
