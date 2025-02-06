@@ -11,7 +11,7 @@
 </body>
 <script>
     const basket_price= {
-        F7: function(basket, Price){
+        F7: function  (basket, price){
             let totalCost = 0;
             for(let product in basket){
                 if (price[product] != undefined){
@@ -36,9 +36,9 @@
             peach : 1.99,
             Apple : 2.10
         };
-        const result = quantity(basket, price);
+        const result = F7(basket, price);
                 document.getElementById("output").textContent = result;
-                alert(`Total Cost of products ${output}`);
+                alert(`Total Cost of products ${result}`);
     }
     
     
