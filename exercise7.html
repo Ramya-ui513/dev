@@ -35,9 +35,9 @@
 
     function quantity() {
         const basket = {
-            Banana: parse(document.getElementById("a").value) || 0, 
-            peach: parse(document.getElementById("b").value) || 0,  
-            Apple: parse(document.getElementById("c").value) || 0 
+            Banana: parseInt(document.getElementById("a").value) || 0, 
+            peach: parseInt(document.getElementById("b").value) || 0,  
+            Apple: parseInt(document.getElementById("c").value) || 0 
         };
 
         const price = {
