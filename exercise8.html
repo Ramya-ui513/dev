@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basket Calculator</title>
+</head>
+
+<body>
+    <label>Banana</label>
+    <input id="a" size="50">
+    <br>
+    <label>Peach</label>
+    <input id="b" size="50">
+    <br>
+    <label>Apple</label>
+    <input id="c" size="50">
+    <br>
+    <button onclick="quantity()">Calculate Total Cost</button>
+    <p id="output"></p>
+</body>
+
+<script>
+    class Basket {
+        constructor() {
+            this.items = {};
+        }
+
+        addItem(product, qty) {
+            if (this.items[product]) {
+                this.items[product] += qty;
+            } else {
+                this.items[product] = qty;
+            }
+        }
+
+        getCost(prices) {
+            let totalCost = 0;
+            for (let product in this.items) {
+                if (prices[product.toLowerCase()]) { // Ensure case matching
+                    totalCost += this.items[product] * prices[product.toLowerCase()];
+                }
+            }
+            return totalCost;
+        }
+    }
+
+    function quantity() {
+        const myBasket = new Basket();
+
+        const bananaQty = parseFloat(document.getElementById("a").value) || 0;
+        const peachQty = parseFloat(document.getElementById("b").value) || 0;
+        const appleQty = parseFloat(document.getElementById("c").value) || 0;
+     
+        myBasket.addItem("banana", bananaQty);
+        myBasket.addItem("peach", peachQty);
+        myBasket.addItem("apple", appleQty);
+     
+        const prices = { apple: 1.5, banana: 2.0, peach: 1.2 };
+     
+        const result = myBasket.getCost(prices);
+      
+        document.getElementById("output");
+        alert(`Total Cost of products: $${result}`);
+    }
+</script>
+
+</html>
