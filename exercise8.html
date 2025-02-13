@@ -38,8 +38,8 @@
         getCost(prices) {
             let totalCost = 0;
             for (let product in this.items) {
-                if (prices[product.toLowerCase()]) { // Ensure case matching
-                    totalCost += this.items[product] * prices[product.toLowerCase()];
+                if (prices[product]) { 
+                    totalCost += this.items[product] * prices[product];
                 }
             }
             return totalCost;
