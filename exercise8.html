@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h2>shopping cart</h2>
-        <button onclick="addItem">Add Item</button>
+        <button onclick="addItem()">Add Item</button>
         <div id="products Section">
             <div class="product">
                 <span>Apple - 1.5eu</span>
@@ -23,7 +23,7 @@
                 <span>Mango - 3.95eu</span>
                 <button onclick="addToCart('Mango')">Add</button>
             </div>
-            <button onclick="viewCart">View Cart</button>
+            <button onclick="viewCart()">View Cart</button>
         </div>
         <div id="cartSection" class="cart">
             <ul id="cartItems"></ul>
@@ -34,7 +34,7 @@
 <script>
  class Basket {
     constructor() {
-        this.item = {};
+        this.items = {};
     }
     addItem(product, qty) {
         if (this.items[product]) {
@@ -48,25 +48,25 @@
         let totalCost = 0;
         for (let product in this.items) {
             if (price[product] !== undefined) {
-                totalCost  += price[product] * this.item[product];
+                totalCost  += price[product] * this.items[product];
             }
         }
         return totalCost;
     }
  }
- const basket = new basket();
+ const basket = new Basket();
  const prices = { Apple: 1.5, Banana: 2.5, Mango: 3.9 };
- document.getElementById("Products Section").value = "none";
- document.getElementById("cartSection").value = "none";
+ document.getElementById("Products Section").style.display = "none";
+ document.getElementById("cartSection").style.display = "none";
  document.getElementById("addItem").addEventListener("click", function() {
-    document.getElementById("Products Section").value = "block";
+    document.getElementById("Products Section").style.display= "block";
  });
  document.getElementById("viewCart").addEventListener("click", function() {
-            document.getElementById("cartSection").value = "block";
+            document.getElementById("cartSection").style.display = "block";
             updateCart();
         });
         function addToCart (Product, Price) {
-            Basket.addItem(product,1);
+            basket.addItem(product,1);
         }
         function updateCart () {
             let cartList = document.getElementById("cartItems");
