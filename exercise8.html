@@ -10,10 +10,29 @@
     <div class="container">
         <h2>shopping cart</h2>
         <button onclick="addItem">Add Item</button>
-        
+        <div id="products Section">
+            <div class="product">
+                <span>Apple - 1.5eu</span>
+                <button onclick="addToCart('Apple')">Add</button>
+            </div>
+            <div class="product">
+                <span>Banana - 2.5eu</span>
+                <button onclick="addToCart('Banana')">Add</button>
+            </div>
+            <div class="product">
+                <span>Mango - 3.95eu</span>
+                <button onclick="addToCart('Mango')">Add</button>
+            </div>
+            <button onclick="viewCart">View Cart</button>
+        </div>
+        <div id="cartSection" class="cart">
+            <ul id="cartItems"></ul>
+            Total: $<span id="basket_price">0</span>
+        </div>
     </div>
 </body>
-<script> 
+<script>
+ 
 
 </script>
 </html>
